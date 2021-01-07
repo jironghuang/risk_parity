@@ -1,0 +1,81 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module risk_parity_class</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>risk_parity_class</strong></big></big></font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/jirong/Desktop/github/risk_parity/risk_parity_class.py">/home/jirong/Desktop/github/risk_parity/risk_parity_class.py</a></font></td></tr></table>
+    <p><tt>Created&nbsp;on&nbsp;Tue&nbsp;Jan&nbsp;&nbsp;5&nbsp;12:35:14&nbsp;2021<br>
+&nbsp;<br>
+@author:&nbsp;jirong</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="functools.html">functools</a><br>
+<a href="numpy.html">numpy</a><br>
+<a href="pandas.html">pandas</a><br>
+</td><td width="25%" valign=top><a href="pyfolio.html">pyfolio</a><br>
+<a href="re.html">re</a><br>
+<a href="riskparityportfolio.html">riskparityportfolio</a><br>
+</td><td width="25%" valign=top><a href="sys.html">sys</a><br>
+<a href="util.html">util</a><br>
+<a href="yfinance.html">yfinance</a><br>
+</td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-risk_parity_weights"><strong>risk_parity_weights</strong></a>(cov_matrix, concatenate_weights=True)</dt><dd><tt>Return&nbsp;risk&nbsp;parity&nbsp;weights.<br>
+&nbsp;<br>
+:param&nbsp;cov_matrix:&nbsp;covariance&nbsp;matrix<br>
+:param&nbsp;contenate_weights:&nbsp;cocnatenate&nbsp;weights&nbsp;into&nbsp;string<br>
+:return:&nbsp;returns&nbsp;tuple&nbsp;of&nbsp;risk&nbsp;parity&nbsp;weights&nbsp;and&nbsp;risk&nbsp;contribution</tt></dd></dl>
+ <dl><dt><a name="-risk_parity_weights_single_chunk"><strong>risk_parity_weights_single_chunk</strong></a>(time_series_input)</dt><dd><tt>Return&nbsp;risk&nbsp;parity&nbsp;based&nbsp;on&nbsp;single&nbsp;time&nbsp;slice.<br>
+&nbsp;<br>
+:param&nbsp;cov_matrix:&nbsp;time_series_input<br>
+:return:&nbsp;returns&nbsp;concatenated&nbsp;risk&nbsp;parity&nbsp;weights</tt></dd></dl>
+ <dl><dt><a name="-rolling_risk_parity_asset_class_returns"><strong>rolling_risk_parity_asset_class_returns</strong></a>(asset_class_dict, start_date='2015-01-01', end_date='2021-12-31', api='yfinance', freq='D', window=252, window_week=52, volatility_targeting=0.1, volatility_targeting_lookback=36, max_leverage=2.0, perc_diff_before_rebalancing=0.15, comm_fee=2, financing_fee=0.015, leverage='partial', starting_amount=1000000)</dt><dd><tt>Return&nbsp;rolling&nbsp;risk&nbsp;parity&nbsp;weights<br>
+&nbsp;<br>
+:param&nbsp;asset_class_dict:&nbsp;asset_class_dict&nbsp;containing&nbsp;list&nbsp;of&nbsp;tickers&nbsp;for&nbsp;in&nbsp;each&nbsp;of&nbsp;asset&nbsp;class<br>
+:param&nbsp;start_date:&nbsp;start_date<br>
+:param&nbsp;end_date:&nbsp;end_date<br>
+:param&nbsp;api:&nbsp;api&nbsp;used<br>
+:param&nbsp;freq:&nbsp;daily&nbsp;(D)&nbsp;or&nbsp;resample&nbsp;to&nbsp;weekly&nbsp;(W)&nbsp;&nbsp;&nbsp;&nbsp;<br>
+:param&nbsp;window:&nbsp;window&nbsp;length<br>
+:param&nbsp;window_week:&nbsp;window&nbsp;length&nbsp;used&nbsp;if&nbsp;sampled&nbsp;weekly<br>
+:param&nbsp;volatility_targeting:&nbsp;Exponential&nbsp;realized&nbsp;volatility&nbsp;target&nbsp;cap&nbsp;(e.g.&nbsp;0.1)<br>
+:param&nbsp;volatility_targeting_lookback:&nbsp;Lookback&nbsp;used&nbsp;for&nbsp;risk&nbsp;parity&nbsp;(e.g.&nbsp;36)<br>
+:param&nbsp;max_leverage:&nbsp;Max&nbsp;leverage&nbsp;used&nbsp;(e.g.&nbsp;2.0)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br>
+:param&nbsp;perc_diff_before_rebalancing:&nbsp;Percentage&nbsp;different&nbsp;from&nbsp;optimal&nbsp;position&nbsp;before&nbsp;rebalancing&nbsp;(e.g.&nbsp;0.15)&nbsp;&nbsp;<br>
+:param&nbsp;comm_fee:&nbsp;Commission&nbsp;fee&nbsp;per&nbsp;trade&nbsp;(e.g.&nbsp;2)<br>
+:param&nbsp;financing_fee:&nbsp;Annual&nbsp;financing&nbsp;rate&nbsp;(e.g.&nbsp;0.015)<br>
+:param&nbsp;leverage:&nbsp;Financing&nbsp;fee&nbsp;on&nbsp;entire&nbsp;asset&nbsp;or&nbsp;leveraged&nbsp;portion&nbsp;(e.g.&nbsp;'partial'&nbsp;or&nbsp;'full')&nbsp;&nbsp;&nbsp;&nbsp;<br>
+:param&nbsp;starting_amount:&nbsp;starting_amount&nbsp;of&nbsp;capital&nbsp;(e.g.&nbsp;1000000)<br>
+:return:&nbsp;returns&nbsp;dataframe&nbsp;with&nbsp;full&nbsp;parameters&nbsp;and&nbsp;returns&nbsp;data</tt></dd></dl>
+ <dl><dt><a name="-rolling_risk_parity_returns"><strong>rolling_risk_parity_returns</strong></a>(tickers=['TLT', 'IEF', 'GLD', 'SPY'], start_date='2015-01-01', end_date='2021-12-31', api='yfinance', freq='D', window=252, starting_amount=1000000)</dt><dd><tt>Return&nbsp;rolling&nbsp;risk&nbsp;parity&nbsp;weights<br>
+&nbsp;<br>
+:param&nbsp;tickers:&nbsp;list&nbsp;of&nbsp;tickers&nbsp;for&nbsp;risk&nbsp;parity<br>
+:param&nbsp;start_date:&nbsp;start_date<br>
+:param&nbsp;end_date:&nbsp;end_date<br>
+:param&nbsp;api:&nbsp;api&nbsp;used<br>
+:param&nbsp;freq:&nbsp;daily&nbsp;(D)&nbsp;or&nbsp;resample&nbsp;to&nbsp;weekly&nbsp;(W)&nbsp;&nbsp;&nbsp;&nbsp;<br>
+:param&nbsp;window:&nbsp;window&nbsp;length<br>
+:param&nbsp;starting_amount:&nbsp;starting_amount&nbsp;of&nbsp;capital<br>
+:return:&nbsp;returns&nbsp;concatenated&nbsp;risk&nbsp;parity&nbsp;weights</tt></dd></dl>
+ <dl><dt><a name="-rolling_risk_parity_weights"><strong>rolling_risk_parity_weights</strong></a>(time_series_input, window)</dt><dd><tt>Return&nbsp;rolling&nbsp;risk&nbsp;parity&nbsp;weights<br>
+&nbsp;<br>
+:param&nbsp;cov_matrix:&nbsp;time_series_input<br>
+:param&nbsp;window:&nbsp;window&nbsp;length<br>
+:return:&nbsp;returns&nbsp;concatenated&nbsp;risk&nbsp;parity&nbsp;weights</tt></dd></dl>
+</td></tr></table>
+</body></html>
