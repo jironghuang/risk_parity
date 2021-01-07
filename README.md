@@ -38,3 +38,4 @@ I developed 2 classes,
 Note: Second class is used to generate signals in my live deployment. But if you wish to use it, pls include further engineering safeguards which I set up in a broader framework.
 
 - Documentation of classes could be found in the following document, risk_parity_documentation.pdf
+- Jupyter notebook for results and sensitivity analysis could be found here, risk_parity_analysis.ipynb
